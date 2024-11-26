@@ -1,8 +1,11 @@
-﻿namespace FastNet.Infrastructure.Network
+﻿using System.Net;
+
+namespace FastNet.Infrastructure.Network
 {
     public class HttpRequest
     {
         public Uri Uri { get; set; }
+        public CookieContainer Cookies { get; set; } = new CookieContainer();
         public object? Data { get; set; }
 
         public HttpRequest(Uri uri)
@@ -19,7 +22,14 @@
         {
             HttpResponse result = new HttpResponse();
 
-            using(HttpClient client = new HttpClient())
+            HttpClientHandler handler = new HttpClientHandler()
+            {
+                CookieContainer = Cookies,
+                UseCookies = true,
+                UseDefaultCredentials = true
+            };
+
+            using(HttpClient client = new HttpClient(handler))
             {
                 HttpResponseMessage response = await client.GetAsync(Uri);
 

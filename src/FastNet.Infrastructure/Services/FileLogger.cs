@@ -13,10 +13,10 @@ namespace FastNet.Infrastructure.Services
 
         public void Log(object? message, LogLevel level)
         {
-            using(StreamWriter writer = new StreamWriter(LogFileName))
+            using(StreamWriter writer = new StreamWriter(LogFileName, true))
             {
                 string currentDateTime = DateTime.Now.ToString("g");
-                string formattedString = string.Format("{0} - [{1}]: {2}", currentDateTime, typeof(TOwner).Name, message);
+                string formattedString = string.Format("{0} - [{1}] ({2}): {3}", currentDateTime, level, typeof(TOwner).Name, message);
                 writer.WriteLine(formattedString);
             }
         }

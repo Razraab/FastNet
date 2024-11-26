@@ -58,6 +58,8 @@ namespace FastNet.Domain.Core
         {
             if (Services == null) throw new NullReferenceException("Service container is null");
 
+            Services.Resolve<ILogger<Application>>().Reset();
+
             ConsoleUI ui = Services.Resolve<ConsoleUI>();
             ui.Show();
         }

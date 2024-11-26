@@ -7,6 +7,7 @@ namespace FastNet.UI.Core.Console.Commands
         public HelpCommand() :base("help") { }
         private readonly string HelpMessage =
             """
+            clear - clear the console
             get - http get request to address
             """;
 
