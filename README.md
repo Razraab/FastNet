@@ -15,8 +15,6 @@ This project presents a console browser with which you can quickly get a respons
 
 ## Using
 
-> <span style="color: #b5b214; opacity: 70%">As of this commit, the project is not yet complete</span>
-
 To run and use this project, you need to port it to your system:
 
 ```
