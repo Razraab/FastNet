@@ -1,4 +1,6 @@
-﻿namespace FastNet.UI.Core.Console.Commands
+﻿using FastNet.UI.Console;
+
+namespace FastNet.UI.Commands
 {
     public class ClearCommand : ConsoleCommand
     {

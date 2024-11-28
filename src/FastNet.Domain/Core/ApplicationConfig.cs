@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace FastNet.Domain.Core
+﻿namespace FastNet.Domain.Core
 {
     public class ApplicationConfig
     {

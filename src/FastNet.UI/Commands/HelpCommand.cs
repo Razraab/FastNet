@@ -1,10 +1,11 @@
-﻿using System.Reflection;
+﻿using FastNet.UI.Console;
+using System.Reflection;
 
-namespace FastNet.UI.Core.Console.Commands
+namespace FastNet.UI.Commands
 {
     public class HelpCommand : ConsoleCommand
     {
-        public HelpCommand() :base("help") { }
+        public HelpCommand() : base("help") { }
         private readonly string HelpMessage =
             """
             clear - clear the console

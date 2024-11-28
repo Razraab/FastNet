@@ -1,13 +1,16 @@
 ﻿using Autofac;
-using FastNet.Infrastructure.Interfaces;
-using FastNet.Infrastructure.Services;
-using FastNet.UI.Core;
 using System.Reflection;
 using System.Diagnostics.CodeAnalysis;
-using FastNet.UI.Core.Console.Commands;
+using FastNet.Infrastructure.Interfaces;
+using FastNet.Infrastructure.Services;
+using FastNet.UI.Commands;
+using FastNet.UI.Console;
 
 namespace FastNet.Domain.Core
 {
+    /// <summary>
+    /// Class representing the application context
+    /// </summary>
     public class Application
     {
         public static Application Current { get; private set; } = null!;

@@ -1,13 +1,14 @@
 ﻿using FastNet.Infrastructure.Interfaces;
 using FastNet.Infrastructure.Network;
+using FastNet.UI.Console;
 
-namespace FastNet.UI.Core.Console.Commands
+namespace FastNet.UI.Commands
 {
-    public class GetCommand : HttpMethodCommand
+    public class DeleteCommand : HttpMethodCommand
     {
         private readonly ILogger<GetCommand> _logger;
 
-        public GetCommand(ILogger<GetCommand> logger) : base("get")
+        public DeleteCommand(ILogger<GetCommand> logger) : base("delete")
         {
             _logger = logger;
         }
@@ -23,7 +24,7 @@ namespace FastNet.UI.Core.Console.Commands
             {
                 request = new HttpRequest(args[1].ToString() ?? "");
                 request.Cookies = SavedCookies;
-                response = request.Get().Result;
+                response = request.Delete().Result;
             }
             catch (Exception ex)
             {

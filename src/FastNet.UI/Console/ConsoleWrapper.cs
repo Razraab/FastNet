@@ -1,4 +1,4 @@
-﻿namespace FastNet.UI.Core.Console
+﻿namespace FastNet.UI.Console
 {
     /// <summary>
     /// A class containing the basic functions of the 

@@ -76,5 +76,57 @@ namespace FastNet.Infrastructure.Network
             }
             return result;
         }
+
+        public async Task<HttpResponse> Put(string data)
+        {
+            HttpResponse result = new HttpResponse();
+
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(data);
+
+                HttpResponseMessage response = await client.PutAsync(Uri, content);
+
+                result.StatusCode = (int)response.StatusCode;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result.Content = await response.Content.ReadAsStringAsync();
+                    result.Headers = response.Headers;
+                    // Set cookies
+                    if (response.Headers.Contains("Set-Cookie"))
+                    {
+                        foreach (string? cookieHeader in response.Headers.GetValues("Set-Cookie"))
+                            result.Cookies.SetCookies(Uri, cookieHeader);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public async Task<HttpResponse> Delete()
+        {
+            HttpResponse result = new HttpResponse();
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.DeleteAsync(Uri);
+
+                result.StatusCode = (int)response.StatusCode;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result.Content = await response.Content.ReadAsStringAsync();
+                    result.Headers = response.Headers;
+                    // Set cookies
+                    if (response.Headers.Contains("Set-Cookie"))
+                    {
+                        foreach (string? cookieHeader in response.Headers.GetValues("Set-Cookie"))
+                            result.Cookies.SetCookies(Uri, cookieHeader);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

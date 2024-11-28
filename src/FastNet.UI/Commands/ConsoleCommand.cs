@@ -1,10 +1,10 @@
-﻿namespace FastNet.UI.Core.Console.Commands
+﻿namespace FastNet.UI.Commands
 {
     public class ConsoleCommand
     {
         public string Command { get; private protected set; }
         private protected List<ConsoleCommand> InnerCommands { get; set; } = new List<ConsoleCommand>();
-        
+
         private Action<object[]>? execute;
 
         public ConsoleCommand(string command)

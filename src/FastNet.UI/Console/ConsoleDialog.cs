@@ -1,11 +1,11 @@
-﻿namespace FastNet.UI.Core.Console
+﻿namespace FastNet.UI.Console
 {
     public class ConsoleDialog
     {
         public string BeginString { get; set; } = ">> ";
         public List<string> History = new List<string>();
 
-        public void Start(Action<List<string>> action) => Start(action, (string s) => s == "quit");
+        public void Start(Action<List<string>> action) => Start(action, (s) => s == "quit");
 
         public void Start(Action<List<string>> action, Func<string, bool> quitHandler)
         {

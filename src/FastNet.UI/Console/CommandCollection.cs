@@ -1,7 +1,7 @@
-﻿using FastNet.UI.Core.Console.Commands;
+﻿using FastNet.UI.Commands;
 using System.Collections.ObjectModel;
 
-namespace FastNet.UI.Core.Console
+namespace FastNet.UI.Console
 {
     public class CommandCollection : Collection<ConsoleCommand>
     {

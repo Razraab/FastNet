@@ -1,7 +1,8 @@
 ﻿using FastNet.Infrastructure.Network;
+using FastNet.UI.Console;
 using System.Net;
 
-namespace FastNet.UI.Core.Console.Commands
+namespace FastNet.UI.Commands
 {
     public abstract class HttpMethodCommand : ConsoleCommand
     {
@@ -75,7 +76,7 @@ namespace FastNet.UI.Core.Console.Commands
                     List<Infrastructure.Network.Models.Cookie> cookies = new List<Infrastructure.Network.Models.Cookie>();
 
                     // Adding cookie from collection to models
-                    foreach (System.Net.Cookie cookie in cookieCollection)
+                    foreach (Cookie cookie in cookieCollection)
                         cookies.Add(new Infrastructure.Network.Models.Cookie(cookie.Name, cookie.Value) { Expires = cookie.Expires });
 
                     table.SetData(cookies);

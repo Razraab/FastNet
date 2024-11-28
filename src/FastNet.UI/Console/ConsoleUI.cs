@@ -1,8 +1,7 @@
 ﻿using FastNet.Infrastructure.Interfaces;
-using FastNet.UI.Core.Console;
-using FastNet.UI.Core.Console.Commands;
+using FastNet.UI.Commands;
 
-namespace FastNet.UI.Core
+namespace FastNet.UI.Console
 {
     /// <summary>
     /// Class that performs the function of typing 
@@ -13,7 +12,7 @@ namespace FastNet.UI.Core
         private readonly ILogger<ConsoleUI> _logger;
 
         public CommandCollection Commands { get; set; }
-        public Func<string, bool> QuitHandler { get; set; } = (string c) =>
+        public Func<string, bool> QuitHandler { get; set; } = (c) =>
         {
             if (c == "quit") return true;
             return false;
